@@ -6,22 +6,26 @@
 
 {% block content %}
     {% if perfil %}
+    <div class="profile-info">
         <h2>Perfil</h2>
         <p><strong>Sexo:</strong> {{ perfil['sexo'] }}</p>
         <p><strong>Peso Inicial:</strong> {{ perfil['peso_inicial'] }}</p>
         <p><strong>Estatura:</strong> {{ perfil['estatura'] }}</p>
         <p><strong>Objetivo:</strong> {{ perfil['objetivo'] }}</p>
         <p><strong>Fecha de Registro:</strong> {{ perfil['fecha_registro'] }}</p>
+    </div>
     {% else %}
         <p>No profile data available.</p>
     {% endif %}
     
     {% if macros %}
+    <div class="macros-info">
         <h2>Calorías y Macronutrientes</h2>
         <p><strong>Calorías para {{ perfil['objetivo'] }} peso:</strong> {{ macros['cal_objetivo'] }}</p>
         <p><strong>Proteína:</strong> {{ macros['prot'] }} g ({{ macros['porc_prot'] }}%)</p>
         <p><strong>Grasa:</strong> {{ macros['grasa'] }} g ({{ macros['porc_grasa'] }}%)</p>
         <p><strong>Carbohidratos:</strong> {{ macros['carboh'] }} g ({{ macros['porc_carboh'] }}%)</p>
+    </div>
     {% endif %}
 
     {% if medidas %}

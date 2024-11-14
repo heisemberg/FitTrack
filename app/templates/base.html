@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<title>{% block title %}{% endblock %} - FitTrack</title>
-<link rel="'stylesheet" href="{{url_for('static', filename='style.css') }}">
-<nav>
-    <h1>FitTrack</h1>
-    <ul>
-        {% if g.usuario %}
-            <li><span>{{ g.usuario['usuario'] }}</span></li>
-            <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
-        {% else %}
-            <li><a href="{{url_for('auth.login')}}">Login</a></li>
-            <li><a href="{{url_for('auth.register')}}">Register</a></li>
-        {% endif %}
-    </ul>
-</nav>
-<section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - FitTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>FitTrack</h1>
+        <ul>
+            {% if g.usuario %}
+                <li><span>{{ g.usuario['usuario'] }}</span></li>
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
         {% for message in get_flashed_messages() %}
-            <div class="flash">{{message}}</div>
+            <div class="flash">{{ message }}</div>
         {% endfor %}
         {% block content %}{% endblock %}
-</section>
+    </section>
+</body>
+</html>
    
