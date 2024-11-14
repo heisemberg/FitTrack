@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Editar Medidas{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <label for="peso">Peso</label>
+        <input type="number" name="peso" id="peso" step="0.01" value="{{ medida['peso'] }}" required>
+        
+        <label for="cintura">Cintura</label>
+        <input type="number" name="cintura" id="cintura" step="0.01" value="{{ medida['cintura'] }}">
+        
+        <label for="pecho">Pecho</label>
+        <input type="number" name="pecho" id="pecho" step="0.01" value="{{ medida['pecho'] }}">
+        
+        <label for="cadera">Cadera</label>
+        <input type="number" name="cadera" id="cadera" step="0.01" value="{{ medida['cadera'] }}">
+        
+        <label for="brazo">Brazo</label>
+        <input type="number" name="brazo" id="brazo" step="0.01" value="{{ medida['brazo'] }}">
+        
+        <label for="pierna">Pierna</label>
+        <input type="number" name="pierna" id="pierna" step="0.01" value="{{ medida['pierna'] }}">
+        
+        <input type="submit" value="Guardar Cambios">
+    </form>
+{% endblock %}

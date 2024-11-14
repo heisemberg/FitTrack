@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Register Profile{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <label for = "sexo">Sexo</label>
+        <select name="sexo" id="sexo" required>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+        </select>
+        <label for ="peso_inicial">Peso Inicial</label>
+        <input type="number" name="peso_inicial" id="peso_inicial" step="0.01" required>
+        <label for="estatura">Estatura</label>
+        <input type="number" name="estatura" id="estatura" step="0.01" required>
+        <label for="objetivo">Objetivo</label>
+        <select name="objetivo" id="objetivo" required>
+            <option value="bajar">Bajar de Peso</option>
+            <option value="mantener">Mantener Peso</option>
+            <option value="subir">Subir de Peso</option>
+        </select>
+        <input type="submit" value="Register">
+    </form>
+{% endblock %}
