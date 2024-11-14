@@ -24,9 +24,9 @@ def calcular_macros(peso, genero, objetivo, porcentaje):
     else:
         raise ValueError("Objetivo inválido")
 
-    prot = 2 * peso  # Ejemplo de gramos de proteína por kg
+    prot = 2 * peso  # Ejemplo de gramos de proteína por kg (Se debe consumir entre 1.5 g y 2.5 g máximo de proteina por kilo para aumento de masa¡)
     prot_cal = prot * 4
-    grasa = 1 * peso  # Ejemplo de gramos de grasa por kg
+    grasa = 1 * peso  # Ejemplo de gramos de grasa por kg (Se debe consumir entre 0.8 g y 2 g máximo de grasa por Kilo para aumento de masa)
     grasa_cal = grasa * 9
     carboh_cal = cal_objetivo - grasa_cal - prot_cal
     carboh = carboh_cal / 4
@@ -66,7 +66,7 @@ def index():
             peso=perfil['peso_inicial'],
             genero=perfil['sexo'],
             objetivo=perfil['objetivo'],
-            porcentaje=15  # Ejemplo de porcentaje para aumentar o bajar
+            porcentaje=20  # Ejemplo de porcentaje para aumentar o bajar (Para aumentar o bajar de peso debe consumir o disminuir entre un 10% minimo a un 20% maximo de calorías)
         )
 
     return render_template('fittrack/index.html', perfil=perfil, medidas=medidas, macros=macros)
